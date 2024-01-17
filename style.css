@@ -57,3 +57,6 @@ section {
     transform: rotateY(180deg);
 }
 
+.display{
+visibility: hidden;
+}

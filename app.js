@@ -1,6 +1,6 @@
 const section = document.querySelector("section");
 const playerLiverCount = document.querySelector("span");
-let playerLives = 3;
+let playerLives =5;
 
 playerLiverCount.textContent = playerLives;
 
@@ -11,7 +11,7 @@ const getData = () => [
   { imgSrc: "./Images/card3.png", name: "card3" },
   { imgSrc: "./Images/card5.png", name: "card5" },
   { imgSrc: "./Images/card5.png", name: "card5" },
-  { imgSrc: "./Images/card7.png", name: "card7" },
+  { imgSrc: "./Images/card2.png", name: "card7" },
   { imgSrc: "./Images/card8.png", name: "card8" },
   { imgSrc: "./Images/card8.png", name: "card8" },
   { imgSrc: "./Images/card7.png", name: "card7" },
@@ -54,6 +54,7 @@ const checkCards = (e) => {
   const clickedCard = e.target;
   clickedCard.classList.add("flipped");
   const flippedCard = document.querySelectorAll(".flipped");
+  const display = document.querySelectorAll(".display");
   console.log(clickedCard);
   if (flippedCard.length === 2) {
     if (
@@ -62,7 +63,9 @@ const checkCards = (e) => {
     ) {
       // console.log("match");
       flippedCard.forEach((card) => {
+        card.classList.add("display");
         card.classList.remove("flipped");
+        console.log(card);
         card.style.pointerEvents = "none";
       });
     } else {
@@ -96,7 +99,7 @@ const restart = () => {
     }, 1000);
   });
 
-  playerLives = 3;
+  playerLives = 5;
   playerLiverCount.textContent = playerLives;
 
   console.log(cards);
