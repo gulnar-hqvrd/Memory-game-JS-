@@ -45,9 +45,13 @@ const cardGenerator = () => {
     card.appendChild(face);
     card.appendChild(back);
 
-    card.addEventListener("click", (e) => {
+
+    
+        card.addEventListener("click", (e) => {
       card.classList.toggle("toggleCard");
       checkCards(e);
+      var audio = new Audio('/pounding-cards-on-table-99355.mp3');
+      audio.play();
     });
   });
 };
