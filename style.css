@@ -9,7 +9,11 @@ h1{
     margin: 20px 0 ;
 }
 body {
-  background-color: teal;
+  /* background-color: teal; */
+  background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20200528/pngtree-gaming-black-gold-playing-cards-background-image_336962.jpg");
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -19,10 +23,12 @@ body {
 
 section {
   display: grid;
-  grid-template-columns: repeat(3, 8rem);
-  grid-template-rows: repeat(5, 8rem);
+  grid-template-columns: repeat(3, 6rem);
+  grid-template-rows: repeat(5, 5rem);
   grid-gap: 2rem;
-  perspective: 800px;
+  /* perspective: 400px; */
+  /* border: 1px solid red; */
+
 }
 
 .card {
@@ -31,6 +37,7 @@ section {
   transition: all 2s cubic-bezier(0.175, 0.885,0.32,1.275);
   box-shadow: rgba(0, 0, 0, 0.573) 0px 5px 15px;
   border-radius: 10px;
+  /* border: 1px solid red; */
 }
 .face,
 .back {
@@ -42,7 +49,7 @@ section {
 
 .back {
   /* background-color: white; */
-  background-image: url("https://png.pngtree.com/background/20210712/original/pngtree-wedding-card-background-design-picture-image_1171274.jpg");
+  background-image: url("/Images//main.png");
   background-position: center;
   background-repeat: no-repeat;
   /* background-size: cover; */

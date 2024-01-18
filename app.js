@@ -1,8 +1,27 @@
 const section = document.querySelector("section");
-const playerLiverCount = document.querySelector("span");
-let playerLives =5;
+ const playerLiverCount = document.querySelector("span");
+let playerLives = 5;
+let countdownTimer;
 
 playerLiverCount.textContent = playerLives;
+
+
+const startTimer = (seconds) => {
+  let timer = seconds;
+
+  countdownTimer = setInterval(() => {
+    playerLiverCount.textContent = `${playerLives} - Zaman: ${timer}s`;
+
+    if (timer === 0) {
+      clearInterval(countdownTimer);
+      restart();
+    } else {
+      timer--;
+    }
+  }, 1000);
+};
+
+
 
 const getData = () => [
   { imgSrc: "./Images/card1.png", name: "card1" },
@@ -16,8 +35,8 @@ const getData = () => [
   { imgSrc: "./Images/card2.png", name: "card9" },
   { imgSrc: "./Images/card8.png", name: "card8" },
   { imgSrc: "./Images/card8.png", name: "card8" },
-  { imgSrc: "./Images/main.png", name: "main" },
-  { imgSrc: "./Images/main.png", name: "main" },
+  { imgSrc: "./Images/K3.png", name: "K3" },
+  { imgSrc: "./Images/K3.png", name: "K3" },
   { imgSrc: "./Images/K4.png", name: "K4" },
   { imgSrc: "./Images/K4.png", name: "K4" },
 ];
@@ -50,7 +69,7 @@ const cardGenerator = () => {
         card.addEventListener("click", (e) => {
       card.classList.toggle("toggleCard");
       checkCards(e);
-      var audio = new Audio('/pounding-cards-on-table-99355.mp3');
+      var audio = new Audio('/flipcard-91468.mp3');
       audio.play();
     });
   });
@@ -81,6 +100,12 @@ const checkCards = (e) => {
         setTimeout(() => card.classList.remove("toggleCard"), 1000);
       });
       playerLives--;
+
+ if (playerLives === 0) {
+        clearInterval(countdownTimer); // Stop the timer
+        restart();
+      }
+
       playerLiverCount.textContent = playerLives;
       if (playerLives === 0) {
         restart();
@@ -111,8 +136,10 @@ const restart = () => {
 
   playerLives = 5;
   playerLiverCount.textContent = playerLives;
+startTimer(30); 
 
-  // console.log(cards);
+//   // console.log(cards);
 };
 
 cardGenerator();
+startTimer(30)
