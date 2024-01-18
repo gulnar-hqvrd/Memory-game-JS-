@@ -9,13 +9,15 @@ const getData = () => [
   { imgSrc: "./Images/card1.png", name: "card1" },
   { imgSrc: "./Images/card3.png", name: "card3" },
   { imgSrc: "./Images/card3.png", name: "card3" },
+  { imgSrc: "./Images/card4.png", name: "card4" },
+  { imgSrc: "./Images/card4.png", name: "card4" },
   { imgSrc: "./Images/card5.png", name: "card5" },
   { imgSrc: "./Images/card5.png", name: "card5" },
-  { imgSrc: "./Images/card2.png", name: "card7" },
+  { imgSrc: "./Images/card2.png", name: "card9" },
   { imgSrc: "./Images/card8.png", name: "card8" },
   { imgSrc: "./Images/card8.png", name: "card8" },
-  { imgSrc: "./Images/card7.png", name: "card7" },
-  { imgSrc: "./Images/card7.png", name: "card7" },
+  { imgSrc: "./Images/main.png", name: "main" },
+  { imgSrc: "./Images/main.png", name: "main" },
   { imgSrc: "./Images/K4.png", name: "K4" },
   { imgSrc: "./Images/K4.png", name: "K4" },
 ];
@@ -55,7 +57,7 @@ const checkCards = (e) => {
   clickedCard.classList.add("flipped");
   const flippedCard = document.querySelectorAll(".flipped");
   const display = document.querySelectorAll(".display");
-  console.log(clickedCard);
+  // console.log(clickedCard);
   if (flippedCard.length === 2) {
     if (
       flippedCard[0].getAttribute("name") ===
@@ -65,7 +67,7 @@ const checkCards = (e) => {
       flippedCard.forEach((card) => {
         card.classList.add("display");
         card.classList.remove("flipped");
-        console.log(card);
+        // console.log(card);
         card.style.pointerEvents = "none";
       });
     } else {
@@ -78,6 +80,7 @@ const checkCards = (e) => {
       playerLiverCount.textContent = playerLives;
       if (playerLives === 0) {
         restart();
+        // console.log(playerLiverCount);
       }
 
       console.log(playerLives);
@@ -86,23 +89,26 @@ const checkCards = (e) => {
 };
 
 const restart = () => {
+  
   let cardData = randomize();
   let faces = document.querySelectorAll(".face");
   let cards = document.querySelectorAll(".card");
   cardData.forEach((item, index) => {
     cards[index].classList.remove("toggleCard");
+    cards[index].classList.remove("display");
 
     setTimeout(() => {
       cards[index].style.pointerEvents = "all";
       faces[index].src = item.imgSrc;
       cards[index].setAttribute("name", item.name);
     }, 1000);
+    console.log(cards);
   });
 
   playerLives = 5;
   playerLiverCount.textContent = playerLives;
 
-  console.log(cards);
+  // console.log(cards);
 };
 
 cardGenerator();
